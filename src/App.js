@@ -94,8 +94,8 @@ function Home() {
          </div>
         <img className="full-width-image" src={homedecor} alt="homedecor" align="center" />
     </div>
-    <CategoryHeader title="Christimas is coming" button="Shop now" route="/shop" />
-    <CategoryHeader title="Christimas is coming 2" button="Shop now" />
+    <CategoryHeader type="furniture" />
+    <CategoryHeader title="Christimas is coming 20" button="Shop now" />
     <CategoryHeader title="Christimas is coming 3" button="Shop now" />
     {/* <CategoryHeader title="Christmas is coming" button="Explore"></CategoryHeader> */}
     <div className="full-width-overflow">
