@@ -32,7 +32,7 @@ export default function App() {
   return (
     <Router>
       <div>
-        {/* <nav>
+        <nav>
         <div className="right-toolbar">
         
 
@@ -52,7 +52,7 @@ export default function App() {
 
               <Link to="/contact">Contact</Link>
         </div>
-        </nav> */}
+        </nav>
 
 
         {/* A <Switch> looks through its children <Route>s and
@@ -105,7 +105,7 @@ function Home() {
     </div>
     <CategoryHeader title="Christimas is coming" button="Shop now" />
     {/* <CategoryHeader title="Christmas is coming" button="Explore"></CategoryHeader> */}
-    {/* <div className="full-width-overflow">
+    <div className="full-width-overflow">
 <center><br />
 <table width='80%' border="0">
 <tbody>
@@ -157,7 +157,7 @@ function Home() {
 </tbody>
 </table>
 </center>
-     </div> */}
+     </div>
      </div>);
 }
 
