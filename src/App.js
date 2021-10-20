@@ -1,3 +1,4 @@
+// import "tailwindcss/tailwind.css"
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -31,7 +32,7 @@ export default function App() {
   return (
     <Router>
       <div>
-        <nav>
+        {/* <nav>
         <div className="right-toolbar">
         
 
@@ -51,7 +52,7 @@ export default function App() {
 
               <Link to="/contact">Contact</Link>
         </div>
-        </nav>
+        </nav> */}
 
 
         {/* A <Switch> looks through its children <Route>s and
@@ -87,6 +88,15 @@ export default function App() {
 function Home() {
   return ( <div>
 
+      <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex items-center space-x-4">
+        <div className="flex-shrink-0">
+          <img className="h-12 w-12" src="/img/logo.svg" alt="ChitChat Logo" />
+        </div>
+        <div>
+          <div className="text-xl font-medium text-black">ChitChat</div>
+          <p className="text-gray-500">You have a new message!</p>
+        </div>
+      </div>
      <div className="image-container">
        <div className="floating-text">
          <a href="/new-in">Shop the newly added products</a>
@@ -95,7 +105,7 @@ function Home() {
     </div>
     <CategoryHeader title="Christimas is coming" button="Shop now" />
     {/* <CategoryHeader title="Christmas is coming" button="Explore"></CategoryHeader> */}
-    <div className="full-width-overflow">
+    {/* <div className="full-width-overflow">
 <center><br />
 <table width='80%' border="0">
 <tbody>
@@ -147,7 +157,7 @@ function Home() {
 </tbody>
 </table>
 </center>
-     </div>
+     </div> */}
      </div>);
 }
 
