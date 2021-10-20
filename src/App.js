@@ -89,14 +89,11 @@ function Home() {
 
      <div className="image-container">
        <div className="floating-text">
-         &nbsp;
-         <h1><a href="/new-in">Explore all newly added products</a></h1>
+         <a href="/new-in">Shop the newly added products</a>
          </div>
         <img className="full-width-image" src={homedecor} alt="homedecor" align="center" />
     </div>
-    <CategoryHeader type="furniture" />
-    <CategoryHeader title="Christimas is coming 20" button="Shop now" />
-    <CategoryHeader title="Christimas is coming 3" button="Shop now" />
+    <CategoryHeader title="Christimas is coming" button="Shop now" />
     {/* <CategoryHeader title="Christmas is coming" button="Explore"></CategoryHeader> */}
     <div className="full-width-overflow">
 <center><br />
@@ -118,9 +115,8 @@ function Home() {
 </tbody>
 </table>
 </center>
-<h1><center>Your pièce de résistance</center></h1>
-<center><p><a href="/furniture">Explore all furniture</a></p></center>
-&nbsp;
+    <CategoryHeader title="Your pièce de résistance" button="Shop now" />
+
 <center>
 <table width='80%' border="0">
 <tbody>
@@ -134,17 +130,13 @@ function Home() {
 </tbody>
 </table>
 </center>
-
-<h1><center>Hold it to have it</center></h1>
-<center><p><a href="/ceramics">Explore all Ceramics</a></p></center>
+     <CategoryHeader title="Hold it to have it" button="Shop now" />  
 &nbsp;
 &nbsp;
 <center><img src={ceramics} alt="ceramics" align="center" />
 </center>
 
-&nbsp;
-<h1><center>Light your day</center></h1>
-<center><p><a href="/lighting">Explore all Lighting</a></p></center>
+     <CategoryHeader title="Light your day" button="Shop now" />
 <center><br />
 <table width='80%' border="0">
 <tbody>
