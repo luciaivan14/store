@@ -88,7 +88,10 @@ export default function App() {
 function Home() {
   return ( <div>
 
-      <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex items-center space-x-4">
+      
+     <div className="image-container">
+       <div className="floating-text">
+         <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex items-center space-x-4">
         <div className="flex-shrink-0">
           <img className="h-12 w-12" src="/img/logo.svg" alt="ChitChat Logo" />
         </div>
@@ -97,8 +100,6 @@ function Home() {
           <p className="text-gray-500">You have a new message!</p>
         </div>
       </div>
-     <div className="image-container">
-       <div className="floating-text">
          <a href="/new-in">Shop the newly added products</a>
          </div>
         <img className="full-width-image" src={homedecor} alt="homedecor" align="center" />
