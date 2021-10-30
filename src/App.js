@@ -7,53 +7,32 @@ import {
   Link
 } from "react-router-dom";
 
-import homedecor from './images/homedecor.jpeg';
-import desk from './images/desk.png';
-import chair from './images/in-between-chair5.png';
-import table from './images/corbula-coffee-table.png'
-import coffeetable from './images/april-tables1.png'
-import ceramics from './images/ceramic-vases.png'
-import plate from './images/christmas-plate.jpeg'
-import house from './images/christmas-house.jpeg'
-import cluster from './images/coral-cluster.jpeg'
-import garland from './images/wood-garland.jpeg'
-import card from './images/christmas-card.jpeg'
-import tree from './images/christmas-tree.jpeg'
-import alpaca from './images/christmas-alpaca.jpeg'
-import lamp from './images/wood-lamp.jpeg'
-import pendant from './images/pendant-light.jpeg'
-import berrytree from './images/berry-tree.jpeg'
-import pinecone from './images/glitter-pinecone.jpeg'
-import logo from'./images/logo.png'
+import homedecor from './images/homedecor.jpg';
+import ceramics from './images/ceramic-vases.png';
+import lighting from './images/lighting.png';
+import furnit from './images/furniture.png';
+import furniture from './images/furniture.jpg';
+import lamp from './images/wood-lamp.jpeg';
+import chandelier from './images/chandelier.jpeg';
+import floorlamp from './images/floor-lamp.jpeg';
+import chair from './images/chair.jpeg';
+import coffeetable from './images/coffee-table.jpeg';
+import sofa from './images/sofa.jpeg';
+import tblamp from './images/tblamp.jpeg';
+import logo from'./images/logo.png';
 import CategoryHeader from "./components/CategoryHeader/categoryHeader";
+import ImageContainer from "./components/ImageContainer/imagecontainer";
+import StoreNav from "./components/StoreNav/StoreNav.js";
+import Footer from './components/Footer/Footer.js';
+import ProductListing from "./components/ProductListing/ProductListing.js";
 
+import Furniture from "./pages/Furniture/furniture.js"
 
 export default function App() {
   return (
     <Router>
       <div>
-        <nav>
-        <div className="right-toolbar">
-        
-
-              <Link to="/"><img src={logo} alt="logo" align="center" /></Link>
-
-              <Link to="/">Home</Link>
-
-              <Link to="/new-in">New In</Link>
-
-              <Link to="/furniture">Furniture</Link>
-
-              <Link to="/ceramics">Ceramics</Link>
-
-              <Link to="/lighting">Lighting</Link>
-
-              <Link to="/christmas">Christmas</Link>
-
-              <Link to="/contact">Contact</Link>
-        </div>
-        </nav>
-
+      <StoreNav />
 
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
@@ -85,86 +64,155 @@ export default function App() {
   );
 }
 
+// Simple array, this is where we store data from the backend. Add filtering logic to change the items in the array.
+const oldProducts = ["Table Lamp", "Dining Chair", "Washer"]
+
+const futureProducts = [
+  {
+    name: "Table lamp",
+    category: "Lighting",
+    price: "$12",
+    id: "123",
+    stock: 5,
+    image: lamp
+  },
+  {
+    name: "Chandelier",
+    category: "Lighting",
+    price: "$24",
+    id: "123",
+    stock: 5,
+    image: chandelier
+  },
+  {
+    name: "Table lamp",
+    category: "Lighting",
+    price: "$12",
+    id: "124",
+    stock: 5,
+    image: lamp
+  },
+  {
+    name: "Cylinder table lamp",
+    category: "Lighting",
+    price: "$12",
+    id: "123",
+    stock: 5,
+    image: tblamp
+  },
+  {
+    name: "Floor lamp",
+    category: "Lighting",
+    price: "$12",
+    id: "123",
+    stock: 5,
+    image: floorlamp
+  }
+]
+const firstRowProducts = [
+  {
+    name: "Roots chair",
+    category: "Furniture",
+    price: "$12",
+    id: "124",
+    stock: 5,
+    image: chair
+  },
+  {
+    name: "Coffee table",
+    category: "Furniture",
+    price: "$12",
+    id: "123",
+    stock: 5,
+    image: coffeetable
+  },
+  {
+    name: "Coffee table",
+    category: "Furniture",
+    price: "$12",
+    id: "124",
+    stock: 5,
+    image: coffeetable
+  },
+  {
+    name: "Sofa",
+    category: "Furniture",
+    price: "$12",
+    id: "123",
+    stock: 5,
+    image: sofa
+  },
+]
+
+
+const filter = "123";
+
+function filterProducts(localArray) {
+  const filteredArray = localArray.filter((product) => {
+    // let isValid = false;
+    // if (product.category == "Lighting") {
+    //   isValid = true;
+    // }
+    // return isValid;
+    return product.id == filter
+  })
+  console.log("localArray");
+  console.log(localArray);
+  console.log("filteredArray");
+  console.log(filteredArray);
+  return filteredArray;
+}
+
+filterProducts(futureProducts);
+
+// Responsible for displaying our products
+function renderProducts(localArray) {
+  const filteredArray = filterProducts(localArray);
+  // Create a new array to hold the finalised list of products in a visual manner
+  const renderedProducts = [];
+  // Loop through all the raw data and transform it to something has styling and structure 
+  // 3 itmes in the oldProducts
+  //  2 items in newProducts
+  for (const i in filteredArray) {
+    const product = filteredArray[i];
+    // if (product.category == filter) {
+      const productComponent = <ProductListing productImage={product.image} productTitle={product.name} />;
+      // Adding the construcuted and finalised visual component into my holding array
+      renderedProducts.push(productComponent);
+    // }
+  }
+  return renderedProducts;
+}
+
 function Home() {
   return ( <div>
-
-      
-     <div className="image-container">
-       <div className="floating-text">
-         <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex items-center space-x-4">
-        <div className="flex-shrink-0">
-          <img className="h-12 w-12" src="/img/logo.svg" alt="ChitChat Logo" />
-        </div>
-        <div>
-          <div className="text-xl font-medium text-black">ChitChat</div>
-          <p className="text-gray-500">You have a new message!</p>
-        </div>
-      </div>
-         <a href="/new-in">Shop the newly added products</a>
-         </div>
-        <img className="full-width-image" src={homedecor} alt="homedecor" align="center" />
+     
+    <ImageContainer image={homedecor} buttonMessage="Shop New Products"/>
+    <CategoryHeader title="Your perfect room" />
+    <div className="productContainer">
+    { renderProducts(firstRowProducts) } 
     </div>
-    <CategoryHeader title="Christimas is coming" button="Shop now" />
+    <ImageContainer image={furniture} position="top-right" buttonMessage="Shop Furniture"/>
+    <CategoryHeader title="Set the mood" />
+    <div className="productContainer">
+    { renderProducts(futureProducts) } 
+    </div>
+    <CategoryHeader title="Hold it to have it" />
+    <ImageContainer image={ceramics} position="top-left" buttonMessage="Shop Ceramics"/>
+    
+    <Footer />
+
+{/* <CategoryHeader title="Light your day" button="Explore now" /> */}
+    
+    
     {/* <CategoryHeader title="Christmas is coming" button="Explore"></CategoryHeader> */}
     <div className="full-width-overflow">
-<center><br />
-<table width='80%' border="0">
-<tbody>
-<tr>
-<td rowspan="2"><center><img src={tree} alt="tree" align="center" /></center></td>
-<td><center><img src={plate} alt="plate" align="center" /></center></td>
-<td><center><img src={house} alt="house" align="center" /></center></td>
-<td><center><img src={cluster} alt="cluster" align="center" /></center></td>
-<td><center><img src={berrytree} alt="berrytree" align="center" /></center></td>
-</tr>
-<tr>
-<td><center><img src={garland} alt="garland" align="center" /></center></td>
-<td><center><img src={card} alt="card" align="center" /></center></td>
-<td><center><img src={alpaca} alt="alpaca" align="center" /></center></td>
-<td><center><img src={pinecone} alt="pinecone" align="center" /></center></td>
-</tr>
-</tbody>
-</table>
-</center>
-    <CategoryHeader title="Your pièce de résistance" button="Shop now" />
-
-<center>
-<table width='80%' border="0">
-<tbody>
-<tr>
-<td border-color='f8f8f8' border-style='solid'><center><img src={desk} alt="desk" align="center" /></center></td>
-<td ><center><img src={table} alt="table" align="center" /></center></td>
-<td ><center><img src={coffeetable} alt="coffee" align="center" /></center></td>
-<td ><center><img src={chair} alt="chair" align="center" /></center></td>
-<p>&nbsp;</p>
-</tr>
-</tbody>
-</table>
-</center>
-     <CategoryHeader title="Hold it to have it" button="Shop now" />  
-&nbsp;
-&nbsp;
-<center><img src={ceramics} alt="ceramics" align="center" />
-</center>
-
-     <CategoryHeader title="Light your day" button="Shop now" />
-<center><br />
-<table width='80%' border="0">
-<tbody>
-<tr>
-<td ><center><img src={lamp} alt="lamp" align="center" /></center></td>
-<td ><center><img src={pendant} alt="pendant" align="center" /></center></td>
-</tr>
-</tbody>
-</table>
-</center>
+    
      </div>
      </div>);
 }
 
-function Furniture() {
-  return <h2>Furniture</h2>;
-}
+
 
 function Ceramics() {
   return <h2>Ceramics</h2>;
